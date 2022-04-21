@@ -1,0 +1,24 @@
+énoncé Micro ERP :
+
+Il vous est demandé de créer un back end, avec le système de bsd de votre choix !, ce système 
+devra permettre une gestion user complète, en plus de ça, il permettra a cette user d'avoir 
+une liste de ses commandes de fournitures (au choix). Les routes et controller + models 
+devront être géré de la meilleur façon possible ! donc une architecture au choix mais propre ! 
+
+pas de code spaghetti !
+
+1 : Le client aura un mot de passe hasher avec soins ! (trouver le bon package node pour ça)
+
+2 : tenter de mettre en place un système JWT ! pour l'authentification de cet user !
+
+3 : seul l'admin à le droit de modifier tous les users ! sinon, chacun n'a le droit que de ses propre modification !
+
++ : on pourra aussi avoir un système de retour clients, pour les produits renvoyer à la société mère ainsi que la gestion de bon d'achat !!!
+
+
+Pour la partie front, il sera demander de faire tout le système visuel pour que le client aie son interface graphique pour réaliser toutes ces taches codées dans le back
+
+
+Back en Express JS --> 3 jours
+
+Front en Angular --> 4-5 jours

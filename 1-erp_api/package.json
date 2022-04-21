@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node.js": "^0.0.1-security"
+    "express": "^4.17.3",
+    "node.js": "^0.0.1-security",
+    "sqlite": "^4.0.25"
   }
 }
