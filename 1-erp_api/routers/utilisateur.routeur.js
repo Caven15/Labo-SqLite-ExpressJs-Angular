@@ -1,7 +1,6 @@
 const express = require("express")
-const router = express.router()
+const router = express.Router()
 const utilisateurController = require("../controllers/uilisateur.controller")
-
 
 // GET /utilisateurs
 router.get("/", utilisateurController.getAll)
@@ -17,3 +16,6 @@ router.patch("/:id", utilisateurController.update)
 
 // DELETE /utilisateurs/:id
 router.delete("/:id", utilisateurController.delete)
+
+
+module.exports = router

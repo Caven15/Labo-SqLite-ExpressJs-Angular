@@ -18,7 +18,5 @@ pas de code spaghetti !
 
 Pour la partie front, il sera demander de faire tout le système visuel pour que le client aie son interface graphique pour réaliser toutes ces taches codées dans le back
 
-
 Back en Express JS --> 3 jours
-
 Front en Angular --> 4-5 jours
