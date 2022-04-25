@@ -1,4 +1,5 @@
 const utilisateurModel = require("../models/utilisateur.model")
+var bcrypt = require('bcryptjs');
 
 exports.getAll = (request, response, next) => {
     utilisateurModel.getAll().then((datas) => {
@@ -17,8 +18,8 @@ exports.add = (request, response, next) => {
         request.body.nom,
         request.body.prenom,
         request.body.dateNaissance,
-        request.body.idAdmin,
-        request.body.password
+        request.body.isAdmin,
+        bcrypt.hashSync(request.body.password, 10)
     ).then((datas) => {
         response.json(datas)
     })
@@ -26,12 +27,11 @@ exports.add = (request, response, next) => {
 
 exports.update = (request, response, next) => {
     utilisateurModel.update(
-        
         request.body.nom,
         request.body.prenom,
         request.body.dateNaissance,
-        request.body.idAdmin,
-        request.body.password,
+        request.body.isAdmin,
+        bcrypt.hashSync(request.body.password, 10),
         request.params.id
     ).then((datas) => {
         response.json(datas)

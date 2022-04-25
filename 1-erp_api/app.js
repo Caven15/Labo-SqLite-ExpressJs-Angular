@@ -8,18 +8,16 @@ db.connect()
 
 //routage
 const utilisateurRouteur = require('./routers/utilisateur.routeur')
+const fournitureRouteur = require('./routers/fourniture.routeur')
 
-
-// ?
 app.use(express.json())
-
-// ?
 app.use(express.urlencoded({extended : true}))
 
 // chargement route utilisateur
 app.use("/utilisateur", utilisateurRouteur)
+app.use("/fourniture", fournitureRouteur)
 
-// si la route n'est pas trouvée
+// si aucune route n'est trouvée
 app.all("*", (request, response, next) => {
     console.log("attention cette route n'existe pas")
     response.end()

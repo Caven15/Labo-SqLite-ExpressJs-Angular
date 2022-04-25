@@ -7,9 +7,9 @@ devront être géré de la meilleur façon possible ! donc une architecture au c
 
 pas de code spaghetti !
 
-1 : Le client aura un mot de passe hasher avec soins ! (trouver le bon package node pour ça)
+1 : Le client aura un mot de passe hasher avec soins ! (trouver le bon package node pour ça) => bcryptjs
 
-2 : tenter de mettre en place un système JWT ! pour l'authentification de cet user !
+2 : tenter de mettre en place un système JWT ! pour l'authentification de cet user !         => jsonWebToken
 
 3 : seul l'admin à le droit de modifier tous les users ! sinon, chacun n'a le droit que de ses propre modification !
 

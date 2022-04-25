@@ -12,6 +12,7 @@ back-end :
 - nodeJs
 - librairie sqlLite
 - librairie ExpressJs
+- hasher bcryptjs
 
 front-end :
 
