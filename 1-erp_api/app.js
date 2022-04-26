@@ -9,13 +9,15 @@ db.connect()
 //routage
 const utilisateurRouteur = require('./routers/utilisateur.routeur')
 const fournitureRouteur = require('./routers/fourniture.routeur')
+const authRouteur = require('./routers/auth.router')
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
-// chargement route utilisateur
+// chargement des routes
 app.use("/utilisateur", utilisateurRouteur)
 app.use("/fourniture", fournitureRouteur)
+app.use("/auth", authRouteur)
 
 // si aucune route n'est trouvée
 app.all("*", (request, response, next) => {

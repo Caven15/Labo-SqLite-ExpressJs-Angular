@@ -13,6 +13,7 @@ back-end :
 - librairie sqlLite
 - librairie ExpressJs
 - hasher bcryptjs
+- jsonwebtoken
 
 front-end :
 

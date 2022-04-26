@@ -8,9 +8,6 @@ router.get("/", utilisateurController.getAll)
 // GET /utilisateurs/:id
 router.get("/:id", utilisateurController.getOne)
 
-// POST /utilisateurs
-router.post("/", utilisateurController.add)
-
 // PATCH /utilisateurs/:id
 router.patch("/:id", utilisateurController.update)
 

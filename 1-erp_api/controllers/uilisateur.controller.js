@@ -13,22 +13,11 @@ exports.getOne = (request, response, next) => {
     })
 }
 
-exports.add = (request, response, next) => {
-    utilisateurModel.add(
-        request.body.nom,
-        request.body.prenom,
-        request.body.dateNaissance,
-        request.body.isAdmin,
-        bcrypt.hashSync(request.body.password, 10)
-    ).then((datas) => {
-        response.json(datas)
-    })
-}
-
 exports.update = (request, response, next) => {
     utilisateurModel.update(
         request.body.nom,
         request.body.prenom,
+        request.body.email,
         request.body.dateNaissance,
         request.body.isAdmin,
         bcrypt.hashSync(request.body.password, 10),

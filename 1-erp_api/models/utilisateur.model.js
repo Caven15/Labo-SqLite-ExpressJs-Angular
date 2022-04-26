@@ -26,29 +26,16 @@ let connection = require("./dbConnect").get()
         })
     }
 
-// POST /utilisateurs
-    exports.add = (nom, prenom, dateNaissance, isAdmin, password) => {
-        return connection.then((connection) => {
-            return connection.run(
-                `
-                INSERT INTO utilisateur (nom, prenom, dateNaissance, isAdmin, password)
-                VALUES (?,?,?,?,?)
-                `, 
-                nom, prenom, dateNaissance, isAdmin, password
-            )
-        })
-    }
-
 // PATCH /utilisateurs/:id
-    exports.update = (nom, prenom, dateNaissance, isAdmin, password, id) => {
+    exports.update = (nom, prenom, email,  dateNaissance, isAdmin, password, id) => {
         return connection.then((connection) => {
             return connection.run(
                 `
                 UPDATE utilisateur
-                SET nom = ?, prenom = ?, dateNaissance = ?, isAdmin = ?, password = ?
+                SET nom = ?, prenom = ?, email = ?, dateNaissance = ?, isAdmin = ?, password = ?
                 WHERE id = ?
                 `,
-                nom, prenom, dateNaissance, isAdmin, password, id
+                nom, prenom, email, dateNaissance, isAdmin, password, id
             )
         })
     }
