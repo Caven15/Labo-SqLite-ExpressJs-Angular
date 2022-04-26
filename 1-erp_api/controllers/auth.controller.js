@@ -1,6 +1,7 @@
-const utilisateurModel = require("../models/auth.model")
+const authModel = require("../models/auth.model")
 var bcrypt = require('bcryptjs')
 var jwt = require('jsonwebtoken')
+let connection = require("../models/dbConnect").get()
 require('dotenv').config()
 
 function generateAccesToken(utilisateur){
@@ -10,7 +11,7 @@ function generateAccesToken(utilisateur){
 }
 
 exports.register = (request, response, next) => {
-    utilisateurModel.register(
+    authModel.register(
         request.body.nom,
         request.body.prenom,
         request.body.email,
@@ -24,13 +25,16 @@ exports.register = (request, response, next) => {
 }
 
 exports.login = (request, response, next) => {
+    authModel.login(
+        request.body.email,
+        request.body.password
+    ).then((data) => {
+        const token = generateAccesToken(data)
+        response.json(token)
+    })
     // test jwt
         // console.log ("le secret est " + process.env.ACCES_TOKEN_SECRET)
         // let test = generateAccesToken(request.body)
         // console.log(test)
-
-    // je vérifie si le mail n'existe pas déja avant l'inscription ? mise en place middlewhere
-    // je vérifie si l'émail existe dans la db
-    // je vérifie si le mail et le mot de passe correspond 
-    // si tout est ok je renvoi le token problème validités ? 
+    // si tout est ok je renvoi le token 
 }
