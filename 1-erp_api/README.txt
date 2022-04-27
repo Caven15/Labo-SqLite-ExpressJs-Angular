@@ -14,6 +14,7 @@ back-end :
 - librairie ExpressJs
 - hasher bcryptjs
 - jsonwebtoken
+- thunder pour les route api
 
 front-end :
 
