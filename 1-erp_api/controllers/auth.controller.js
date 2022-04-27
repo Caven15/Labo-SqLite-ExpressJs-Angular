@@ -29,12 +29,13 @@ exports.login = (request, response, next) => {
         request.body.email,
         request.body.password
     ).then((data) => {
-        const token = generateAccesToken(data)
-        response.json(token)
-    })
-    // test jwt
+        // test jwt
         // console.log ("le secret est " + process.env.ACCES_TOKEN_SECRET)
         // let test = generateAccesToken(request.body)
         // console.log(test)
-    // si tout est ok je renvoi le token 
+        // si tout est ok je renvoi le token 
+        const token = generateAccesToken(data)
+        response.json(token)
+    })
+    
 }

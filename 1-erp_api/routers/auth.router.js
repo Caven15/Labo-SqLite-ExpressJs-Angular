@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const {testUser, logger} = require("../middlewares/others")
+const {testUser} = require("../middlewares/others")
+const {logger} = require("../middlewares/auth")
 const authController = require("../controllers/auth.controller")
 
 // POST /utilisateurs
