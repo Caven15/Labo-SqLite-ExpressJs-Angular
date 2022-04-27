@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const utilisateurController = require("../controllers/uilisateur.controller")
+const {authenticateJWT} = require("../middlewares/others")
 
 // GET /utilisateurs
 router.get("/", utilisateurController.getAll)
@@ -9,7 +10,7 @@ router.get("/", utilisateurController.getAll)
 router.get("/:id", utilisateurController.getOne)
 
 // PATCH /utilisateurs/:id
-router.patch("/:id", utilisateurController.update)
+router.patch("/:id", authenticateJWT, utilisateurController.update)
 
 // DELETE /utilisateurs/:id
 router.delete("/:id", utilisateurController.delete)

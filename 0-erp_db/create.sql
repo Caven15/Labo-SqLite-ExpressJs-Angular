@@ -6,7 +6,7 @@ CREATE TABLE utilisateur(
     dateNaissance DATE NOT NULL,
     isAdmin INTEGER NOT NULL,
     password VARCHAR NOT NULL
-);
+)
 
 CREATE TABLE fourniture(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
