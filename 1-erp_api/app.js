@@ -1,6 +1,10 @@
 const express = require("express")
 const app = express();
+var cors = require('cors')
 const PORT = process.env.PORT || 3000
+
+// // peremt d'accepter toute les origines
+app.use(cors())
 
 // connection a la db
 const db = require("./models/dbConnect")

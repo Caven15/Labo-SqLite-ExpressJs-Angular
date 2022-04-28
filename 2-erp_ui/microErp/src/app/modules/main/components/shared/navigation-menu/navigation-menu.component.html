@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-dark sticky" style="background-color: rgb(2, 65, 160);">
+    <div class="container-fluid">
+        <a class="navbar-brand " href="#">
+            <h5 class="fw-bold mb-0">Projet Micro Erp</h5>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto p-1">
+            <!---->
+                <li *ngFor="let navItem of routes" class="nav-item">
+            <app-nav-item *ngIf="navItem.isVisible" [navItem]="navItem">
+                <img *ngIf="navItem.imgSrc" [src]="navItem.imgSrc">
+            </app-nav-item>
+            </li>
+            <!---->
+        </ul>
+        <p *ngIf="isConnected" class="m-1 align">
+            <button class="btn btn-outline-warning" (click)="logout()">Déconnexion</button>
+        </p>
+        </div>
+    </div>
+    </nav>
+    <main class="flex-shrink-0">
+    </main>

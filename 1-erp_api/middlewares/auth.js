@@ -9,7 +9,10 @@ exports.logger = (request, response, next) => {
         request.body.email,
         request.body.password
     ).then((data) => {
-        if (bcrypt.compareSync(request.body.password, data["password"] )) {
+        if (data === undefined) {
+            response.status(401).json({error: 'veuillez introduire un mot de passe'})
+        }
+        else if (bcrypt.compareSync(request.body.password, data["password"] )) {
             console.log("connection ok")
             next()
         }
