@@ -47,8 +47,7 @@ export class RegisterUtilisateurComponent implements OnInit {
       }
     );
   }
-
-
+  
   // Récupérer l'utilisateur à enregistrer
   conversion(): void{
     this.utilisateur = new RegisterForm();

@@ -1,14 +1,11 @@
-<div class="modal modal-signin position-static d-block  " tabindex="-1" role="dialog" id="modalSignin" >
-    <div class="modal-dialog p-5" role="document">
-        <div class="modal-content rounded-5 shadow " style="background-color: rgb(2, 65, 160);">
-            <div class="modal-header p-5 pb-5 border-bottom-0 justify-content-center">
+<div class="modal modal-signin position-static d-block" tabindex="-1" role="dialog" id="modalSignin" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-5 shadow" style="background-color: rgb(2, 65, 160);">
+            <div class="modal-header border-bottom-0 justify-content-center">
                 <!-- <h5 class="modal-title">Modal title</h5> -->
-                <h2 style="color: white;" class="fw-bold mb-0">Inscription</h2>
+                <h2 style="color: white;" class="fw-bold mb-0 fs-3">Inscription</h2>
             </div>
-            <div *ngIf="errorMessage != '' ">
-                <p>{{errorMessage}}</p>
-            </div>
-            <div class="modal-body p-5 pt-0">
+            <div class="modal-body p-5 pb-0">
                 <form [formGroup]="registerForm" (ngSubmit)="register()">
                     <div class="form-floating mb-3">
                         <div class="form-floating mb-3">
@@ -34,6 +31,11 @@
                         <div class="form-floating mb-3">
                             <input type="password" formControlName="password" class="form-control" id="confirmPassword" placeholder="Password">
                                 <label for="confirmPassword">Confirmer Mot de passe :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <div *ngIf="errorMessage != '' " class="modal-header p-5 pb-5 border-bottom-0 justify-content-center">
+                                <p>erreur de complétion veuillez reesayer !</p>
+                            </div>
                         </div>
                         <input class="w-100 btn btn-lg btn-success" type="submit"value="S'enregistrer">
                     </div>

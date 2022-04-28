@@ -1,17 +1,16 @@
-<div class="modal modal-signin position-static d-block  py-5" tabindex="-1" role="dialog" id="modalSignin">
+<div class="modal modal-signin p-5 position-static d-block" tabindex="-1" role="dialog" id="modalSignin">
     <div class="modal-dialog" role="document">
         <div class="modal-content rounded-5 shadow" style="background-color: rgb(2, 65, 160);">
-            <div class="modal-header p-5 pb-5 border-bottom-0 justify-content-center">
-                <!-- <h5 class="modal-title">Modal title</h5> -->
-                <h2 style="color: white;" class="fw-bold mb-0">Connexion</h2>
+            <div class="modal-header mb-5 border-bottom-0 justify-content-center">
+                <h2 style="color: white;" class="fw-bold mb-0 fs-3">Connexion</h2>
             </div>
             <div class="modal-body p-5 pt-0">
                 <form [formGroup]="LoginForm" (ngSubmit)="login()">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-1">
                         <input type="email" formControlName="email" class="form-control mb-4" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">E-mail :</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-1">
                         <input  type="password" formControlName="password" class="form-control mb-4" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Mot de passe :</label>
                     </div>
