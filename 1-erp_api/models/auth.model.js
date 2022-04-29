@@ -2,14 +2,14 @@ let connection = require("./dbConnect").get()
 var bcrypt = require('bcryptjs')
 
 // POST /utilisateurs
-exports.register = (nom, prenom, email, dateNaissance, isAdmin, password) => {
+exports.register = (nom, prenom, email, dateNaissance, password) => {
     return connection.then((connection) => {
         return connection.run(
             `
             INSERT INTO utilisateur (nom, prenom, email, dateNaissance, isAdmin, password)
-            VALUES (?,?,?,?,?,?)
+            VALUES (?,?,?,?,0,?)
             `, 
-            nom, prenom, email, dateNaissance, isAdmin, password
+            nom, prenom, email, dateNaissance, password
         )
     })
 }

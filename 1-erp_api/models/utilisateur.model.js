@@ -27,15 +27,15 @@ let connection = require("./dbConnect").get()
     }
 
 // PATCH /utilisateurs/:id
-    exports.update = (nom, prenom, email,  dateNaissance, isAdmin, password, id) => {
+    exports.update = (nom, prenom, email,  dateNaissance, password, id) => {
         return connection.then((connection) => {
             return connection.run(
                 `
                 UPDATE utilisateur
-                SET nom = ?, prenom = ?, email = ?, dateNaissance = ?, isAdmin = ?, password = ?
+                SET nom = ?, prenom = ?, email = ?, dateNaissance = ?, password = ?
                 WHERE id = ?
                 `,
-                nom, prenom, email, dateNaissance, isAdmin, password, id
+                nom, prenom, email, dateNaissance, password, id
             )
         })
     }

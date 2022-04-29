@@ -19,7 +19,6 @@ exports.update = (request, response, next) => {
         request.body.prenom,
         request.body.email,
         request.body.dateNaissance,
-        request.body.isAdmin,
         bcrypt.hashSync(request.body.password, 10),
         request.params.id
     ).then((datas) => {

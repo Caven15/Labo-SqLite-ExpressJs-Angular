@@ -24,6 +24,7 @@ exports.testUser = (request, response, next) => {
 }
 
 exports.verifUpdate = (request, response, next) => {
+    console.log("verif update")
     const authHeader = request.headers.authorization
     utilisateurModel.update(
         request.body.nom,
@@ -37,14 +38,22 @@ exports.verifUpdate = (request, response, next) => {
     if (authHeader) {
         const tokenCode = authHeader.split(' ')[1]
         const tokenDecode = jwt.decode(tokenCode, {complete: true})
-        if (tokenDecode.payload["isAdmin"] === 1 || tokenDecode.payload["id"] === request.params.id) {
+        // console.log(tokenCode)
+        // console.log(tokenDecode)
+        console.log(tokenDecode.payload["isAdmin"])
+        console.log(tokenDecode.payload["id"])
+        console.log(request.params.id)
+        if (tokenDecode.payload["isAdmin"] == 1 || tokenDecode.payload["id"] == request.params.id) {
+            console.log("je procède a l'update")
             next()
         }
         else{
+            console.log("non autorisé")
             response.sendStatus(401).json({error: "vous n'etes pas autoriser a faire ceci"})
         }
     }
     else{
+        console.log("token non inseré")
         response.sendStatus(401).json({error: "vous n'avez pas inserer de token"})
     }
 }

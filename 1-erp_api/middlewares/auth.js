@@ -28,6 +28,7 @@ exports.authenticateJWT = (request, response, next) => {
         const token = authHeader.split(' ')[1];
         jwt.verify(token, process.env.ACCES_TOKEN_SECRET, (err, user) => {
             if (err) {
+                console.log("token non valide")
                 return response.sendStatus(403).json({error: "erreur d'authentification"})
             }
             // request.user = user;

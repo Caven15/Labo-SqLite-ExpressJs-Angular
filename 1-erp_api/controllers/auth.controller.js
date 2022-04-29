@@ -16,7 +16,6 @@ exports.register = (request, response, next) => {
         request.body.prenom,
         request.body.email,
         request.body.dateNaissance,
-        request.body.isAdmin,
         // hash du mot de passe pour l'envoie ver la db
         bcrypt.hashSync(request.body.password, 10),  
     ).then((datas) => {
@@ -34,7 +33,15 @@ exports.login = (request, response, next) => {
         // let test = generateAccesToken(request.body)
         // console.log(test)
         // si tout est ok je renvoi le token 
-        const token = generateAccesToken(data)
+        const dataToken = {
+            id : data.id,
+            nom : data.nom,
+            prenom : data.prenom,
+            email : data.email,
+            dateNaissance : data.dateNaissance,
+            isAdmin : data.isAdmin
+        }
+        const token = generateAccesToken(dataToken)
         response.json(token)
     })
     
