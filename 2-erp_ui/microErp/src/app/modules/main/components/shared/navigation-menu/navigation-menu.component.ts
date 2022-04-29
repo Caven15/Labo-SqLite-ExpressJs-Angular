@@ -21,14 +21,13 @@ export class NavigationMenuComponent implements OnInit {
         next : (utilisateur) => {
           this.isConnected = this._authService.isConnected();
           this.refresh();
-          console.log('Est connecté 1: ' + this.isConnected);
+          console.log("est connecté : " + this.isConnected);
         }
       }
     )
   }
   
   ngOnInit(): void {
-    console.log('ngOnInit : ' + this.isConnected);
   }
 
   refresh(): void{

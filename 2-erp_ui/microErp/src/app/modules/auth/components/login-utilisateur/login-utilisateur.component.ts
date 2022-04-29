@@ -27,8 +27,10 @@ export class LoginUtilisateurComponent implements OnInit {
     })
   }
 
+
+
   login(): void{
-    console.log("connection");
+    console.log("connection...");
     this.utilisateur = new LoginForm();
     this.utilisateur.email = this.LoginForm.value["email"];
     this.utilisateur.password = this.LoginForm.value["password"];
@@ -37,7 +39,6 @@ export class LoginUtilisateurComponent implements OnInit {
       {
         next: (utilisateur) => {
           currentUser = utilisateur;
-          console.log(currentUser);
           if (currentUser && currentUser != null){
             this._route.navigate(["home"]);
           }
@@ -46,3 +47,4 @@ export class LoginUtilisateurComponent implements OnInit {
     );
   }
 }
+

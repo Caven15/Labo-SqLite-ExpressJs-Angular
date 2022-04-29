@@ -20,4 +20,5 @@ back-end :
 front-end :
 
 - frameWork angular
+- jwt-decode pour réception du token
 - framework bootstrap 

@@ -14,7 +14,6 @@ export class utilisateurService {
     GetById(id : number) : Observable<utilisateur>{
         
         var utilisateur = this._client.get<utilisateur>(`${environment.apiUrl}/Utilisateur/${id}`);
-        console.log("utilisateur :" + utilisateur)
         return utilisateur;
     }
 }

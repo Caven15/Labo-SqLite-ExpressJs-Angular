@@ -13,7 +13,6 @@ import { utilisateurService } from 'src/app/services/utilisateur.service';
 export class ProfilUtilisateurComponent implements OnInit {
   public utilisateur : utilisateur = new utilisateur;
   constructor(
-    private _activatedRoute: ActivatedRoute, 
     private _route : Router, 
     private _authService : AuthService, 
     private _utilisateurService : utilisateurService
@@ -25,7 +24,7 @@ export class ProfilUtilisateurComponent implements OnInit {
 
   chargerUtilisateur(): void {
     if(this._authService.isConnected()){
-      let id: number = parseInt(this._activatedRoute.snapshot.params['id']);
+      let id: number = parseInt(sessionStorage.getItem("id"));
       this._utilisateurService.GetById(id).subscribe(utilisateur => {
         this.utilisateur = utilisateur;
       });

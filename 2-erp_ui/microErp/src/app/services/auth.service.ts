@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { LoginForm } from '../models/auth/loginForm.model';
 import { RegisterForm } from '../models/auth/registerForm.model';
 import { utilisateur } from '../models/utilisateur/utilisateur.model';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,16 @@ export class AuthService {
   }
 
   Login(userLogin:LoginForm) : Observable<utilisateur>{
-    console.log(userLogin);
     return this._client.post<any>(`${environment.apiUrl}/Auth/Login`, userLogin)
     .pipe(map(user => {
     // Inserer l'utilisateur dans le sessionStorage
-    sessionStorage.setItem('currentUser', JSON.stringify(user));
+    const tokenDecode = JSON.parse(JSON.stringify(jwt_decode(user)));
+    sessionStorage.setItem('id', JSON.stringify(tokenDecode.id));
+    sessionStorage.setItem('nom', JSON.stringify(tokenDecode.nom));
+    sessionStorage.setItem('prenom', JSON.stringify(tokenDecode.prenom));
+    sessionStorage.setItem('isAdmin', JSON.stringify(tokenDecode.isAdmin));
+    sessionStorage.setItem('dateNaissance', JSON.stringify(tokenDecode.dateNaissance));
     this._currentUserSubject.next(user);
-    console.log(user);
     return user;
     }));
   }
