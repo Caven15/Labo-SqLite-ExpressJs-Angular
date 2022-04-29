@@ -5,17 +5,19 @@ un dossier db est présent uniquement a des fins de model pour la création sur 
 
 
 base de donnée :
+
 - gerer en back-end avec sqlLite (NoSql)
 
 back-end :
 
 - nodeJs
-- librairie sqlLite
+- librairie sqlLite (sqlite3 pour les drivers)
 - librairie ExpressJs
 - hasher bcryptjs
 - jsonwebtoken
-- thunder pour les route api
+- thunder pour les test de route api
 
 front-end :
 
 - frameWork angular
+- framework bootstrap 
