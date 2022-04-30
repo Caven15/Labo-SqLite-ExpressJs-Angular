@@ -1,0 +1,49 @@
+<div class="container p-5 d-flex justify-content-center">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-5 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{utilisateur.nom}}</span><span class="text-black-50">{{utilisateur.email}}</span><span> </span></div>
+            </div>
+            <div class="col-md-6 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <h4 class="text-right fw-bold mb-0 fs-3">Modifier mon profil</h4>
+                    </div>
+                    <form [formGroup]="updateForm" (ngSubmit)="update()">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class="labels">Nom :</label>
+                                <input type="text" formControlName="nom" id="nom" class="form-control" placeholder="{{utilisateur.nom}}" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Prenom :</label>
+                                <input type="text" formControlName="prenom" id="prenom" class="form-control" value="" placeholder="{{utilisateur.prenom}}">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class="labels ">date de naissance : ({{utilisateur.dateNaissance}})</label>
+                                <input type="date" formControlName="dateNaissance" id="dateNaissance" class="form-control" placeholder="{{utilisateur.dateNaissance}}" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">adresse email :</label>
+                                <input type="text" formControlName="email" id="email" class="form-control" placeholder="monAdresse@gmail.com" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class="labels">mot de passe :</label>
+                                <input type="password" class="form-control" placeholder="..." value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">confirmer mot de passe :</label>
+                                <input type="password"  formControlName="password" id="password" class="form-control" value="" placeholder="...">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 text-center"><button class="btn btn-primary profile-button" type="button">Sauvegarder</button></div>
+    </div>
+</div>

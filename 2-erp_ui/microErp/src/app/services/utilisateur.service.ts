@@ -16,4 +16,17 @@ export class utilisateurService {
         var utilisateur = this._client.get<utilisateur>(`${environment.apiUrl}/Utilisateur/${id}`);
         return utilisateur;
     }
+
+    update(id: number, nom: string, prenom: string, dateNaissance: Date, email: string, password: string) {
+        return this._client.patch(
+            `${environment.apiUrl}/utilisateur/${id}`,
+            {
+                nom: nom,
+                prenom: prenom,
+                dateNaissance: dateNaissance,
+                email: email,
+                password: password
+            }
+        )
+    }
 }

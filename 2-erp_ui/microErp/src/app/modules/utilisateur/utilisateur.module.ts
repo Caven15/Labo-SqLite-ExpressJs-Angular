@@ -4,11 +4,13 @@ import { UtilisateurRoutingModule } from './utilisateur-routing.module';
 import { ProfilUtilisateurComponent } from './components/pages/profil-utilisateur/profil-utilisateur.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateUtilisateurComponent } from './components/pages/update-utilisateur/update-utilisateur/update-utilisateur.component';
 
 
 @NgModule({
   declarations: [
-    ProfilUtilisateurComponent
+    ProfilUtilisateurComponent,
+    UpdateUtilisateurComponent
   ],
   imports: [
     CommonModule,

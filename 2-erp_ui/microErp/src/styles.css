@@ -1,5 +1,19 @@
-*body{
-    min-height: 130vh;
+*{
     margin: 0;
     padding: 0;
+}
+
+.body{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    height: 100%;
+    background-color: rgb(178, 178, 178);
+}
+
+.colorSite{
+    background-color: rgb(2, 73, 173);
 }
