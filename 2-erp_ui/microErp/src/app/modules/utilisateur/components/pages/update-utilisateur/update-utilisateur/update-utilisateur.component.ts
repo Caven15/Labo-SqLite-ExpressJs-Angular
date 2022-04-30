@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { utilisateur } from 'src/app/models/utilisateur/utilisateur.model';
@@ -11,7 +11,13 @@ import { utilisateurService } from 'src/app/services/utilisateur.service';
   styleUrls: ['./update-utilisateur.component.css']
 })
 export class UpdateUtilisateurComponent implements OnInit {
-
+  @ViewChild("password") password: ElementRef
+  @ViewChild("passwordConfirmed") passwordConfirmed: ElementRef
+  getvalue(){
+    console.log("---")
+    console.log(this.password)
+    console.log(this.passwordConfirmed)
+  }
   public utilisateur: utilisateur;
   public updateForm: FormGroup;
 
@@ -25,6 +31,7 @@ export class UpdateUtilisateurComponent implements OnInit {
 
   ngOnInit(): void {
     this.refresh()
+
   }
 
   refresh(): void {
@@ -60,7 +67,7 @@ export class UpdateUtilisateurComponent implements OnInit {
             prenom : [this.utilisateur.prenom, [Validators.required]],
             dateNaissance : [this.utilisateur.dateNaissance, [Validators.required]],
             email : [this.utilisateur.email, [Validators.required]],
-            password : [this.utilisateur.email, [Validators.required]]
+            password : [this.utilisateur.password, [Validators.required]]
           })
         }
       }
@@ -84,9 +91,10 @@ export class UpdateUtilisateurComponent implements OnInit {
       let prenom: string = this.updateForm.value['prenom']
       let dateNaissance: Date = this.updateForm.value['dateNaissance']
       let email: string = this.updateForm.value['email']
-      let password: string = this.updateForm.value['email']
+      let password: string = this.updateForm.value['password']
       this._utilisateurService.update(this.utilisateur.id, nom, prenom, dateNaissance, email, password).subscribe({
         error: (errors) => {
+          console.log("ici j'ai une erreur")
           console.log(errors)
         },
         complete: () => {

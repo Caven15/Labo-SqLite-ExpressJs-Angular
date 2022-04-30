@@ -25,14 +25,12 @@ exports.logger = (request, response, next) => {
 exports.authenticateJWT = (request, response, next) => {
     const authHeader = request.headers.authorization;
     if (authHeader) {
-        console.log("test")
         const token = authHeader.split(' ')[1];
         jwt.verify(token, process.env.ACCES_TOKEN_SECRET, (err, user) => {
             if (err) {
-                console.log("token non valide")
+                // a corriger mon patch ne renvoie pas le token coté front 
                 return response.sendStatus(403).json({error: "erreur d'authentification"})
             }
-            // request.user = user;
             next();
         });
     } 

@@ -18,11 +18,13 @@ export class utilisateurService {
     }
 
     update(id: number, nom: string, prenom: string, dateNaissance: Date, email: string, password: string) {
-        console.log("je poste mon update")
-        const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
-        headers.set('Bearer', sessionStorage.getItem("currentUser"))
+        console.log("je passe dans mon update")
+        // headers.set('Bearer', sessionStorage.getItem("currentUser"))
+        const headers = {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + sessionStorage.getItem("currenUser")
+        }
         return this._client.patch(
-            
             `${environment.apiUrl}/utilisateur/${id}`,
             {
                 nom: nom,
@@ -30,7 +32,8 @@ export class utilisateurService {
                 dateNaissance: dateNaissance,
                 email: email,
                 password: password
-            }
+            },
+            {'headers' : headers}
         )
     }
 }
