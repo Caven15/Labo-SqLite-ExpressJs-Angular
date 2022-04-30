@@ -74,6 +74,7 @@ export class UpdateUtilisateurComponent implements OnInit {
 
   update(){
     // si le formulaire d'update n'est pas valable
+    console.log("je lance l'update")
     if(this.updateForm.invalid){
       return;
     }

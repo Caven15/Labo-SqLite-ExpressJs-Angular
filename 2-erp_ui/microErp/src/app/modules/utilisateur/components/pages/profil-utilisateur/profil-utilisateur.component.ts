@@ -19,7 +19,7 @@ export class ProfilUtilisateurComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.chargerUtilisateur();
+    this.chargerUtilisateur()
   }
 
   chargerUtilisateur(): void {
@@ -33,4 +33,7 @@ export class ProfilUtilisateurComponent implements OnInit {
     this._route.navigate(['login'])
   }
   
+  chargerRouteUpdate(): void {
+    this._route.navigate(['utilisateur/profil/update/utilisateur'])
+  }
 }

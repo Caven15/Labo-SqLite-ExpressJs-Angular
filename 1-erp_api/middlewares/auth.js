@@ -25,6 +25,7 @@ exports.logger = (request, response, next) => {
 exports.authenticateJWT = (request, response, next) => {
     const authHeader = request.headers.authorization;
     if (authHeader) {
+        console.log("test")
         const token = authHeader.split(' ')[1];
         jwt.verify(token, process.env.ACCES_TOKEN_SECRET, (err, user) => {
             if (err) {
@@ -36,6 +37,6 @@ exports.authenticateJWT = (request, response, next) => {
         });
     } 
     else {
-        response.sendStatus(401).json({error: "vous n'avez pas inserer de token"})
+        response.sendStatus(403).json({error: "vous n'avez pas inserer de token"})
     }
 }

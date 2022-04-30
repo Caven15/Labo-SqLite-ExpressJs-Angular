@@ -40,9 +40,9 @@ exports.verifUpdate = (request, response, next) => {
         const tokenDecode = jwt.decode(tokenCode, {complete: true})
         // console.log(tokenCode)
         // console.log(tokenDecode)
-        console.log(tokenDecode.payload["isAdmin"])
-        console.log(tokenDecode.payload["id"])
-        console.log(request.params.id)
+        // console.log(tokenDecode.payload["isAdmin"])
+        // console.log(tokenDecode.payload["id"])
+        // console.log(request.params.id)
         if (tokenDecode.payload["isAdmin"] == 1 || tokenDecode.payload["id"] == request.params.id) {
             console.log("je procède a l'update")
             next()
@@ -54,7 +54,7 @@ exports.verifUpdate = (request, response, next) => {
     }
     else{
         console.log("token non inseré")
-        response.sendStatus(401).json({error: "vous n'avez pas inserer de token"})
+        response.sendStatus(403).json({error: "vous n'avez pas inserer de token"})
     }
 }
 
