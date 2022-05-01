@@ -4,11 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { utilisateur } from 'src/app/models/utilisateur/utilisateur.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { utilisateurService } from 'src/app/services/utilisateur.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-update-utilisateur',
   templateUrl: './update-utilisateur.component.html',
-  styleUrls: ['./update-utilisateur.component.css']
+  styleUrls: ['./update-utilisateur.component.css'],
+  providers: [DatePipe]
 })
 export class UpdateUtilisateurComponent implements OnInit {
   @ViewChild("password") password: ElementRef
@@ -26,7 +28,8 @@ export class UpdateUtilisateurComponent implements OnInit {
     private _route: Router,
     private _utilisateurService: utilisateurService,
     private _authService: AuthService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    public datepipe: DatePipe
     ) { }
 
   ngOnInit(): void {
@@ -46,6 +49,8 @@ export class UpdateUtilisateurComponent implements OnInit {
       {
         next: (utilisateur) => {
           this.utilisateur = utilisateur
+          var dateEN = utilisateur.dateNaissance
+          this.datepipe.transform(dateEN, 'dd-MM-yyyy')
         },
         error: (errors) => {
           console.log(errors)
@@ -74,9 +79,8 @@ export class UpdateUtilisateurComponent implements OnInit {
     )
   }
 
-  annuler(){
-    const id: number = parseInt(sessionStorage.getItem("id"))
-    this._route.navigate(['profil/utilisateur', id]);
+  annuler(): void{
+    this._route.navigate(['utilisateur', 'profil'])
   }
 
   update(){
@@ -99,8 +103,7 @@ export class UpdateUtilisateurComponent implements OnInit {
         },
         complete: () => {
           console.log("l'utilisateur a bien été modifié")
-          const id: number = parseInt(sessionStorage.getItem("id"))
-          this._route.navigate(['profil/utilisateur', id])
+          this._route.navigate(['utilisateur', 'profil', 'update'])
         }
       })
     }

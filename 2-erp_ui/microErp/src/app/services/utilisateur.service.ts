@@ -19,11 +19,17 @@ export class utilisateurService {
 
     update(id: number, nom: string, prenom: string, dateNaissance: Date, email: string, password: string) {
         console.log("je passe dans mon update")
-        // headers.set('Bearer', sessionStorage.getItem("currentUser"))
-        const headers = {
-            'content-type': 'application/json',
-            'Authorization': 'Bearer ' + sessionStorage.getItem("currenUser")
+        let token : string = sessionStorage.getItem("currentUser")
+        for (let i = 0; i < token.length; i++) {
+            token = token.replace('"', '')
         }
+        token = "Bearer " + token
+
+        const headers = new HttpHeaders({
+            'content-type': 'application/json',
+            
+            'Authorization': token
+        }) 
         return this._client.patch(
             `${environment.apiUrl}/utilisateur/${id}`,
             {

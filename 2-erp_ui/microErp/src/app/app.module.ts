@@ -11,6 +11,7 @@ import { NavItemComponent } from './modules/main/components/shared/nav-item/nav-
 import { NavigationMenuComponent } from './modules/main/components/shared/navigation-menu/navigation-menu.component';
 import { FooterMenuComponent } from './modules/main/components/shared/footer-menu/footer-menu.component';
 import { AuthModule } from './modules/auth/auth.module';
+import { UtilisateurModule } from './modules/utilisateur/utilisateur.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import { AuthModule } from './modules/auth/auth.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    UtilisateurModule
+  ],
+  exports: [
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

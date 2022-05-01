@@ -5,8 +5,8 @@
                 <h4 class="text-right fw-bold mb-0 fs-2">Mon profil</h4>
             </div>
             <div class="col-md-5 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="rounded-circle" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <div class="d-flex flex-column align-items-center text-center mt-1 py-5">
+                    <img class="rounded-circle mt-md-3" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                 </div>
             </div>
             <div class="col-md-6 border-right">
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label class="labels fs-5 mt-3 mb-3">date de naissance :</label>
-                            <p class=" fw-bold mb-0 fs-4">{{utilisateur.dateNaissance}}</p>
+                            <p class=" fw-bold mb-0 fs-4">{{utilisateur.dateNaissance | date: 'dd-MM-yyyy' }}</p>
                         </div>
                         <div class="col-md-6">
                             <label class="labels fs-5 mt-3 mb-3">adresse email :</label>
@@ -39,7 +39,7 @@
                 <div class="mb-3 text-center d-grid col-6 mx-auto"><button class="btn btn-warning profile-button" type="button" (click)="chargerRouteUpdate()">Modifier</button></div>
             </div>
             <div class="col-md-6">
-                <div class="mb-3 text-center d-grid col-6 mx-auto"><button class="btn btn-danger profile-button" type="button">Suprimmer</button></div>
+                <div class="mb-3 text-center d-grid col-6 mx-auto"><button class="btn btn-danger profile-button" type="button">Suprimer</button></div>
             </div>
         </div>
     </div>

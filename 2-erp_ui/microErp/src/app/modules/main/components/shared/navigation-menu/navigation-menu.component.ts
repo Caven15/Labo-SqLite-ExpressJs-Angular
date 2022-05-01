@@ -35,7 +35,7 @@ export class NavigationMenuComponent implements OnInit {
     if(this.isConnected){
       this.routes = [
         // {title: "Acceuil", url: "home", isVisible: true},
-        {title: "Mon profil", url: "/utilisateur/profil/utilisateur", isVisible: true},
+        {title: "Mon profil", url: "/utilisateur/profil", isVisible: true},
         {title: "Mes commandes", url: "home", isVisible: true},
         {title: "Nouvelle commande", url: "home", isVisible: this.isConnected}
       ];

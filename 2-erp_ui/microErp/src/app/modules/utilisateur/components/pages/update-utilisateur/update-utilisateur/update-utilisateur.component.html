@@ -4,7 +4,6 @@
             <div class="col-md-5 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                    
                 </div>
             </div>
             <div class="col-md-6 border-right">
@@ -26,7 +25,7 @@
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <label class="labels ">date de naissance :</label>
-                                <input type="date" formControlName="dateNaissance" class="form-control" placeholder="{{utilisateur.dateNaissance}}" value="">
+                                <input type="date" formControlName="dateNaissance" class="form-control" placeholder="{{utilisateur.dateNaissance | date: 'dd-MM-yyyy'}}" value="">
                             </div>
                             <div class="col-md-6">
                                 <label class="labels">adresse email :</label>
@@ -36,11 +35,11 @@
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <label class="labels">mot de passe :</label>
-                                <input type="password"  class="form-control"  value="">
+                                <input type="password" formControlName="password" class="form-control" >
                             </div>
                             <div class="col-md-6">
-                                <label class="labels">confirmer mot de passe :</label>
-                                <input type="password" class="form-control">
+                                <label class="labels" placeholder="123">confirmer mot de passe :</label>
+                                <input type="password" formControlName="password" class="form-control" placeholder="123">
                             </div>
                         </div>
                         <div class="mb-3 text-center d-flex justify-content-center">
@@ -49,7 +48,7 @@
                                     <input class="w-100 btn btn-lg btn-warning m-3" type="submit"value="Modifier" [disabled]="updateForm.invalid">
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="w-100 btn btn-lg btn-warning m-3" type="submit"value="Annuler" [disabled]="updateForm.invalid">
+                                    <button class="w-100 btn btn-lg btn-warning m-3" type="button" (click)="annuler()">Annuler</button>
                                 </div>
                             </div>
                         </div>

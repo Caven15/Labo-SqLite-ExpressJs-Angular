@@ -5,11 +5,13 @@ require('dotenv').config()
 
 exports.logger = (request, response, next) => {
     // je vérifie si mon mort de passe correspond
+    console.log("je passe dans le logger")
     authModel.login(
         request.body.email,
         request.body.password
     ).then((data) => {
         if (data === undefined) {
+            console.log("aucune donnée inserée ")
             response.status(401).json({error: 'veuillez introduire un mot de passe'})
         }
         else if (bcrypt.compareSync(request.body.password, data["password"] )) {
@@ -17,12 +19,14 @@ exports.logger = (request, response, next) => {
             next()
         }
         else{
+            console.log("mot de passe invalide")
             response.status(401).json({error: 'mot de passe invalide'})
         }
     })
 }
 
 exports.authenticateJWT = (request, response, next) => {
+    console.log("je passe dans le authenticateJWT")
     const authHeader = request.headers.authorization;
     if (authHeader) {
         const token = authHeader.split(' ')[1];
