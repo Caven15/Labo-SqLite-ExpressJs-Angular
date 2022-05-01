@@ -30,6 +30,7 @@ exports.delete = (request, response, next) => {
     utilisateurModel.delete(
         request.params.id
     ).then((datas) => {
+        console.log("delete Ok")
         response.json(datas)
     })
     

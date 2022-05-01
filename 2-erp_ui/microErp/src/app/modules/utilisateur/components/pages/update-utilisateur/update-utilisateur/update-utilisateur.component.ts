@@ -98,12 +98,11 @@ export class UpdateUtilisateurComponent implements OnInit {
       let password: string = this.updateForm.value['password']
       this._utilisateurService.update(this.utilisateur.id, nom, prenom, dateNaissance, email, password).subscribe({
         error: (errors) => {
-          console.log("ici j'ai une erreur")
           console.log(errors)
         },
         complete: () => {
           console.log("l'utilisateur a bien été modifié")
-          this._route.navigate(['utilisateur', 'profil', 'update'])
+          this._route.navigate(['utilisateur', 'profil'])
         }
       })
     }

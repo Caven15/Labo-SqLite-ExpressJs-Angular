@@ -1,0 +1,19 @@
+<div class="container p-5 d-flex justify-content-center">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="col">
+            <div class="mb-3 col-6 mx-auto">
+                <h3 class="fw-bold mb-0 d-flex justify-content-center mt-5 mb-5">Attention !</h3>
+                <p class="labels m-2">vous etes sur le point de supprimer votre compte de la base de donnée, toute récupération ultérieure sera impossible. Veillez a bien prendre votre choix en considérations avant de prendre une décision.</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mt-5 mb-3">
+                            <button class="btn w-100 btn-danger mt-3" type="button" (click)="deleteUser()">Oui, je supprime mon compte</button>
+                        </div>
+                        <div class="col-md-6 mt-5 mb-3">
+                            <button class="btn w-100 btn-success mt-3" type="button" (click)="retourArriere()">Non, je reviens en arrière</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

@@ -45,5 +45,4 @@ exports.login = (request, response, next) => {
         console.log(token)
         response.json(token)
     })
-    
 }

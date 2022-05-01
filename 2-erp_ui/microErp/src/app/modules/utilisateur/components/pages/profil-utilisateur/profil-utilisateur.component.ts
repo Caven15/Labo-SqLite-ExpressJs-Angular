@@ -43,4 +43,7 @@ export class ProfilUtilisateurComponent implements OnInit {
   chargerRouteUpdate(): void {
     this._route.navigate(['profil/update'])
   }
+  chargerRouteDelete(): void {
+    this._route.navigate(['profil/delete'])
+  }
 }

@@ -17,3 +17,8 @@
 .colorSite{
     background-color: rgb(2, 73, 173);
 }
+
+.big-checkbox {
+    width: 30px; 
+    height: 30px;
+}

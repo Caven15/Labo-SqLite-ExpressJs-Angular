@@ -42,4 +42,9 @@ export class utilisateurService {
             {'headers' : headers}
         )
     }
+
+    Delete(id: number)
+    {
+        return this._client.delete(`${environment.apiUrl}/utilisateur/${id}`);//
+    }
 }
