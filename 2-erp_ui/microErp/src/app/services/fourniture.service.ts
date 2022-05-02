@@ -25,12 +25,12 @@ export class fournitureService {
     }
 
     // ajoute une nouvelle commande
-    add(nom : string, quantite : number, id_utilisateur : number) {
+    add(fourniture : fourniture) {
         return this._client.post(`${environment.apiUrl}/fourniture`,
         {
-            nom : nom,
-            quantite : quantite,
-            id_utilisateur : id_utilisateur
+            nom : fourniture.nom,
+            quantite : fourniture.quantite,
+            id_utilisateur : fourniture.id_utilisateur
         }
         )
     }

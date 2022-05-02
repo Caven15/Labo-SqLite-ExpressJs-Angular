@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
+import { utilisateur } from 'src/app/models/utilisateur/utilisateur.model';
 import { fournitureService } from 'src/app/services/fourniture.service';
 
 @Component({
@@ -29,15 +30,11 @@ export class AddFournitureComponent implements OnInit {
   }
 
   add(): void {
-    console.log("ajout fourniture...")
-    this._fournitureService.add(
-      this.fourniture["nom"], 
-      this.fourniture["quantite"], 
-      parseInt(sessionStorage.getItem("id")
-    ))
-    .subscribe(
+    this.conversion();
+    this._fournitureService.add(this.fourniture).subscribe(
       {
         next : (data) => {
+          console.log("la fourniture a bien été ajouté")
           this._route.navigate(["utilisateur", "profil"])
         },
         error : (error) => {
@@ -46,6 +43,13 @@ export class AddFournitureComponent implements OnInit {
         }
       }
     )
+  }
+
+  conversion(): void{
+    this.fourniture = new fourniture()
+    this.fourniture.nom = this.addForm.value["nom"]
+    this.fourniture.quantite = this.addForm.value["quantite"]
+    this.fourniture.id_utilisateur = parseInt(sessionStorage.getItem("id"))
   }
 
   annuler() : void {
