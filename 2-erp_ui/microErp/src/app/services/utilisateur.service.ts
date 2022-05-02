@@ -10,13 +10,14 @@ import { utilisateur } from "../models/utilisateur/utilisateur.model";
 })
 export class utilisateurService {
     constructor(private _client: HttpClient) {}
-
+    // recherche un utilisateur 
     GetById(id : number) : Observable<utilisateur>{
         
         var utilisateur = this._client.get<utilisateur>(`${environment.apiUrl}/Utilisateur/${id}`);
         return utilisateur;
     }
-
+    
+    // mise a jour d'un utilisateur
     update(id: number, nom: string, prenom: string, dateNaissance: Date, email: string, password: string) {
         console.log("je passe dans mon update")
         let token : string = sessionStorage.getItem("currentUser")
@@ -43,6 +44,7 @@ export class utilisateurService {
         )
     }
 
+    // suprimmer un utilisateur
     Delete(id: number)
     {
         return this._client.delete(`${environment.apiUrl}/utilisateur/${id}`);//

@@ -12,6 +12,7 @@ import { NavigationMenuComponent } from './modules/main/components/shared/naviga
 import { FooterMenuComponent } from './modules/main/components/shared/footer-menu/footer-menu.component';
 import { AuthModule } from './modules/auth/auth.module';
 import { UtilisateurModule } from './modules/utilisateur/utilisateur.module';
+import { FournitureModule } from './modules/fourniture/fourniture.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UtilisateurModule } from './modules/utilisateur/utilisateur.module';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
-    UtilisateurModule
+    UtilisateurModule,
+    FournitureModule
   ],
   exports: [
     FormsModule

@@ -21,7 +21,6 @@ export class AuthService {
   }
 
   constructor(private _client: HttpClient, private _route: Router) { 
-    //
     this._currentUserSubject = new BehaviorSubject<utilisateur>(JSON.parse(sessionStorage.getItem('currentUser')));
     this.currentUser = this._currentUserSubject.asObservable();
   }
@@ -29,7 +28,7 @@ export class AuthService {
   Register(user:RegisterForm) : Observable<any>{
     return this._client.post(`${environment.apiUrl}/Auth/Register`, user);
   }
-
+  // récupère le token et le place en variable de seession avec les infos qu'il contient décodé
   Login(userLogin:LoginForm) : Observable<utilisateur>{
     return this._client.post<any>(`${environment.apiUrl}/Auth/Login`, userLogin)
     .pipe(map(user => {
@@ -45,7 +44,7 @@ export class AuthService {
     return user;
     }));
   }
-
+  // déconnecte un utilisateur et vide la variable de session
   logout(){
     sessionStorage.removeItem('currentUser');
     this._currentUserSubject.next(null);

@@ -6,7 +6,8 @@ const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: AccueilComponent },
     { path: 'auth', loadChildren: ()=>import('./modules/auth/auth.module').then(m => m.AuthModule)},
-    { path: 'utilisateur', loadChildren: ()=>import('./modules/utilisateur/utilisateur.module').then(m => m.UtilisateurModule)}
+    { path: 'utilisateur', loadChildren: ()=>import('./modules/utilisateur/utilisateur.module').then(m => m.UtilisateurModule)},
+    { path: 'fourniture', loadChildren: ()=>import('./modules/fourniture/fourniture.module').then(m => m.FournitureModule)}
 ];
 
 @NgModule({
