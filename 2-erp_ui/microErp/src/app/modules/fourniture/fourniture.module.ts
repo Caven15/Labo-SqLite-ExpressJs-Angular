@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { FournitureRoutingModule } from './fourniture-routing.module';
 import { AddFournitureComponent } from './add-fourniture/add-fourniture.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +13,10 @@ import { AddFournitureComponent } from './add-fourniture/add-fourniture.componen
   ],
   imports: [
     CommonModule,
-    FournitureRoutingModule
+    FournitureRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class FournitureModule { }

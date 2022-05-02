@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
 import { fournitureService } from 'src/app/services/fourniture.service';
@@ -17,7 +17,8 @@ export class AddFournitureComponent implements OnInit {
   constructor(
     private _route: Router,
     private _fournitureService: fournitureService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _reactiveFormsModule : ReactiveFormsModule
   ) { }
 
   ngOnInit(): void {
