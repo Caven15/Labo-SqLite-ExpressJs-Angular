@@ -35,7 +35,7 @@ export class AddFournitureComponent implements OnInit {
       {
         next : (data) => {
           console.log("la fourniture a bien été ajouté")
-          this._route.navigate(["utilisateur", "profil"])
+          this._route.navigate(["fourniture", "fourniture", "allById"])
         },
         error : (error) => {
           this.errorMessage = "l'ajout de la commande a échouer..."

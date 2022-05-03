@@ -20,7 +20,7 @@ export class fournitureService {
     // retourne toute les commande d'un utilisateur
     getAllById(id : number) : Observable<any> 
     {
-        var fourniture = this._client.get(`${environment.apiUrl}/fourniture`)
+        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/${id}`)
         return fourniture
     }
 

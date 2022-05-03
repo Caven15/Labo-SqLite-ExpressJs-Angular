@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { fourniture } from 'src/app/models/fourniture/fourniture.model';
+import { fournitureService } from 'src/app/services/fourniture.service';
 
 @Component({
   selector: 'app-all-by-id-fourniture',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllByIdFournitureComponent implements OnInit {
 
-  constructor() { }
+  public fournitures: fourniture[] = []
+
+  constructor(
+    private _fournitureService: fournitureService,
+    private _route: Router
+  ) { }
 
   ngOnInit(): void {
+    this.getAllByUtilisateur()
   }
 
+
+  getAllByUtilisateur(): void {
+    let id: number = parseInt(sessionStorage.getItem("id"))
+    this._fournitureService.getAllById(id).subscribe({
+      next: (fournitures) => {
+        this.fournitures = fournitures
+      },
+      error: (error) => {
+        console.log(error)
+      },
+      complete: () => {}
+    })
+  }
+
+  chargeRouteDetailFourniture(): void {
+    this._route.navigate(["fourniture", "detail"])
+  }
 }
