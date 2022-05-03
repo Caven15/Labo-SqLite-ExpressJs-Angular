@@ -53,6 +53,6 @@ export class AddFournitureComponent implements OnInit {
   }
 
   annuler() : void {
-    this._route.navigate(["utilisateur", "profil"])
+    this._route.navigate(["fourniture", "allById"])
   }
 }

@@ -14,13 +14,13 @@ export class fournitureService {
     // retourne une commande
     getById(id : number) : Observable<any> 
     {
-        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/${id}`)
+        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/one/${id}`)
         return fourniture
     }
     // retourne toute les commande d'un utilisateur
     getAllById(id : number) : Observable<any> 
     {
-        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/${id}`)
+        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/allBy/${id}`)
         return fourniture
     }
 

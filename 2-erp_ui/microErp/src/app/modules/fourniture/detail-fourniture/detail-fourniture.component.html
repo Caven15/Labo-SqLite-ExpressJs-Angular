@@ -1,1 +1,29 @@
-<p>detail-fourniture works!</p>
+<div class="container p-5 d-flex justify-content-center">
+    <div class="container rounded bg-white m-lg-5 ">
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <h4 class="text-right fw-bold mb-0 fs-2">Détail commande</h4>
+            </div>
+            <div class="col border-right">
+                <div class="p-3 py-5">
+                    <div class="col">
+                        <div class="container d-flex justify-content-center">
+                            <div class="row ">
+                                <label class="labels fs-5 mt-2 mb-3 d-flex justify-content-center">id : {{fourniture.id}}</label>
+                                <label class="labels fs-5 mt-2 mb-3 d-flex justify-content-center">Nom : {{fourniture.nom}}</label>
+                                <label class="labels fs-5 mt-2 mb-3 d-flex justify-content-center">quantité : {{fourniture.quantite}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center mt-5">
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-warning" (click)="chargerRouteModif()">Modifier</button>
+                            <button type="button" class="btn btn-danger" (click)="chargerRoutedelete()">Suprimer</button>
+                            <button type="button" class="btn btn-success" (click)="chargerRouteRetour()">Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,19 @@ let connection = require("./dbConnect").get()
             )
         })
     }
+// GET /fournitures/:id
+exports.getOne = (id) => {
+    return connection.then((connection) => {
+        return connection.get(
+            `
+            SELECT *
+            FROM fourniture
+            WHERE id = ?
+            `,
+            id
+        )
+    })
+}
 // POST /fourniture
     exports.add = (nom, quantite, id_utilisateur) => {
         return connection.then((connection) => {

@@ -6,6 +6,12 @@ exports.getAllById = (Request, response, next) => {
     })
 }
 
+exports.getOne = (Request, response, next) => {
+    fournitureModel.getOne(Request.params.id).then((data) => {
+        response.json(data)
+    })
+}
+
 exports.add = (request, response, next) => {
     fournitureModel.add(
         request.body.nom,

@@ -3,7 +3,10 @@ const router = express.Router()
 const fournitureController = require("../controllers/fourniture.controller")
 
 // GET /fournitures/:id
-router.get("/:id", fournitureController.getAllById)
+router.get("/allBy/:id", fournitureController.getAllById)
+
+// GET /fournitures/:id
+router.get("/one/:id", fournitureController.getOne)
 
 // POST /fourniture
 router.post("/", fournitureController.add)
