@@ -18,6 +18,10 @@ export class AllByIdFournitureComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAllById()
+  }
+  
+  getAllById(): void {
     let id: number = parseInt(sessionStorage.getItem("id"))
     this._fournitureService.getAllById(id).subscribe({
       next: (fournitures) => {
@@ -25,14 +29,16 @@ export class AllByIdFournitureComponent implements OnInit {
       },
       error: (error) => {
         console.log(error)
-      }
+      },
+      complete : () => {}
     })
   }
 
-  chargeRouteDetailFourniture(): void {
-    this._route.navigate(["fourniture", "detail"])
-  }
   chargeRouteAddFourniture(): void {
     this._route.navigate(["fourniture", "add"])
+  }
+
+  chargeRouteDetailFourniture(id): void {
+    this._route.navigate(["fourniture", "detail", id])
   }
 }

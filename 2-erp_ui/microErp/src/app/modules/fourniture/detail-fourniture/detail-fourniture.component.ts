@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
 import { fournitureService } from 'src/app/services/fourniture.service';
 
@@ -14,12 +14,13 @@ export class DetailFournitureComponent implements OnInit {
 
   constructor(
     private _route : Router,
-    private _fournitureService: fournitureService
+    private _fournitureService: fournitureService,
+    private _activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    let id : number = parseInt(sessionStorage.getItem("id"))
-    this._fournitureService.getById(id).subscribe(fourniture =>{
+    let idFourniture = this._activatedRoute.snapshot.params["id"]
+    this._fournitureService.getById(idFourniture).subscribe(fourniture =>{
         this.fourniture = fourniture
     })
   }

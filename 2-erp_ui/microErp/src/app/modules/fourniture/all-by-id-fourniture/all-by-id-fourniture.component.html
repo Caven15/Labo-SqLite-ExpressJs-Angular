@@ -16,9 +16,7 @@
                             <td>{{fourniture.id}}</td>
                             <td>{{fourniture.nom}}</td>
                             <td>{{fourniture.quantite}}</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-info" (click)="chargeRouteDetailFourniture()">Détail</button>
-                            </td>
+                            <td><button type="button" class="btn btn-primary" (click)="chargeRouteDetailFourniture(fourniture.id)">Détail</button></td>
                     </tr>
                 </tbody>
                 </table>

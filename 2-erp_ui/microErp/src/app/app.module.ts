@@ -13,6 +13,8 @@ import { FooterMenuComponent } from './modules/main/components/shared/footer-men
 import { AuthModule } from './modules/auth/auth.module';
 import { UtilisateurModule } from './modules/utilisateur/utilisateur.module';
 import { FournitureModule } from './modules/fourniture/fourniture.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FournitureModule } from './modules/fourniture/fourniture.module';
     ReactiveFormsModule,
     AuthModule,
     UtilisateurModule,
-    FournitureModule
+    FournitureModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   exports: [
     FormsModule

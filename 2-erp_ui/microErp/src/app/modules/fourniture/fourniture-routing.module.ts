@@ -4,10 +4,11 @@ import { AddFournitureComponent } from './add-fourniture/add-fourniture.componen
 import { AllByIdFournitureComponent } from './all-by-id-fourniture/all-by-id-fourniture.component';
 import { DetailFournitureComponent } from './detail-fourniture/detail-fourniture.component';
 
+
 const routes: Routes = [
   {path: 'fourniture/add', component: AddFournitureComponent},
   {path: 'fourniture/allById', component: AllByIdFournitureComponent},
-  {path: 'fourniture/detail', component: DetailFournitureComponent}
+  {path: 'fourniture/detail/:id', component: DetailFournitureComponent}
 ];
 
 @NgModule({

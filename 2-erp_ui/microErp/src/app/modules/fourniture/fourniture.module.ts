@@ -9,9 +9,11 @@ import { AddFournitureComponent } from './add-fourniture/add-fourniture.componen
 import { DetailFournitureComponent } from './detail-fourniture/detail-fourniture.component';
 
 
+
 @NgModule({
   declarations: [
     AddFournitureComponent,
+    AllByIdFournitureComponent,
     AllByIdFournitureComponent,
     DetailFournitureComponent
   ],

@@ -10,9 +10,6 @@ exports.testUser = (request, response, next) => {
         request.body.email,
         request.body.password
     ).then((data) => {
-        console.log("----------------------------")
-        console.log(data)
-        console.log(request.body.email)
         if (data === undefined) {
             console.log("email ok")
             next()

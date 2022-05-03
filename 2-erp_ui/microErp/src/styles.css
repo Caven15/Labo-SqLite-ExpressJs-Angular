@@ -1,3 +1,5 @@
+@import '~ngx-toastr/toastr';
+
 *{
     margin: 0;
     padding: 0;
@@ -16,6 +18,14 @@
 
 .colorSite{
     background-color: rgb(2, 73, 173);
+}
+
+.colorTest{
+    background-color: #80ff49;
+}
+
+.colorTest2{
+    background-color: rgb(255, 44, 44);
 }
 
 .big-checkbox {

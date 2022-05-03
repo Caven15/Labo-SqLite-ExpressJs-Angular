@@ -12,15 +12,15 @@ export class fournitureService {
     constructor(private _client: HttpClient) {}
 
     // retourne une commande
-    getById(id : number) : Observable<any> 
+    getById(id : number) : Observable<fourniture> 
     {
-        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/one/${id}`)
+        var fourniture = this._client.get<fourniture>(`${environment.apiUrl}/fourniture/one/${id}`)
         return fourniture
     }
     // retourne toute les commande d'un utilisateur
-    getAllById(id : number) : Observable<any> 
+    getAllById(id : number) : Observable<fourniture[]> 
     {
-        var fourniture = this._client.get(`${environment.apiUrl}/fourniture/allBy/${id}`)
+        var fourniture = this._client.get<fourniture[]>(`${environment.apiUrl}/fourniture/allBy/${id}`)
         return fourniture
     }
 
