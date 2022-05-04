@@ -5,7 +5,6 @@ import { AllUtilisateurComponent } from './all-utilisateur/all-utilisateur.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { DetailUtilisateurComponent } from './detail-utilisateur/detail-utilisateur.component';
 
 

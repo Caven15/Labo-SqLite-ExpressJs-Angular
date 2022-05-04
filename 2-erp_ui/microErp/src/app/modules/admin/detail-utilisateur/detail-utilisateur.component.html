@@ -1,1 +1,49 @@
-<p>detail-utilisateur works!</p>
+<div class="container p-5 d-flex justify-content-center">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <h4 class="text-right fw-bold mb-0 fs-2">Mon profil</h4>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="d-flex flex-column align-items-center text-center mt-4 py-5">
+                    <img class="rounded-circle mt-md-3" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                </div>
+            </div>
+            <div class="col-md-6 border-right">
+                <div class="p-3 py-5">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <label class="labels fs-5 mt-2 mb-3">Nom :</label>
+                            <p class=" fw-bold mb-0">{{utilisateur.nom}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels fs-5 mt-2 mb-3">Prenom :</label>
+                            <p class=" fw-bold mb-0"></p>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <label class="labels fs-5 mt-2 mb-3">date de naissance :</label>
+                            <p class=" fw-bold mb-0"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels fs-5 mt-2 mb-3">adresse email :</label>
+                            <p class="fw-bold mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row m-0 p-0">
+            <div class="col-md-6">
+                <div class="mb-3 col-6 mx-auto ">
+                    <button class="btn w-100 btn-warning mb-1 mt-md-4" type="button" >Modifier</button></div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3 col-6 mx-auto">
+                    <button class="btn w-100 btn-danger mb-1 mt-md-4" type="button" >Suprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

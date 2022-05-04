@@ -54,4 +54,13 @@ export class AuthService {
   isConnected() : boolean {
     return (this.currentUserValue != null);
   }
+
+  isAdminConnected() : boolean{
+    let id:number = parseInt(sessionStorage.getItem("isAdmin"))
+    if (id == 1) {
+      return true
+    }
+    else
+      return false
+  }
 }

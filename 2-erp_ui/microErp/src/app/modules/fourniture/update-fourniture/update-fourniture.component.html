@@ -1,4 +1,4 @@
-<form [formGroup]="updateForm" (ngSubmit)="update()">
+<form *ngIf = 'updateForm' [formGroup]="updateForm" (ngSubmit)="update()">
     <div class="container p-5 d-flex justify-content-center">
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
