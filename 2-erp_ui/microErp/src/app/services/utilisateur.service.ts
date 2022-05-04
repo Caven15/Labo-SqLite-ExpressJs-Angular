@@ -10,6 +10,12 @@ import { utilisateur } from "../models/utilisateur/utilisateur.model";
 })
 export class utilisateurService {
     constructor(private _client: HttpClient) {}
+    // récupérer tout les utilisateur
+    getAll(): Observable<utilisateur[]>{
+        var utilisateur = this._client.get<utilisateur[]>(`${environment.apiUrl}/utilisateur`)
+        return utilisateur
+    }
+
     // recherche un utilisateur 
     GetById(id : number) : Observable<utilisateur>{
         

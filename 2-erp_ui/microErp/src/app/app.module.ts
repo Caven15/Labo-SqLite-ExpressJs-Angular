@@ -15,6 +15,7 @@ import { UtilisateurModule } from './modules/utilisateur/utilisateur.module';
 import { FournitureModule } from './modules/fourniture/fourniture.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminModule } from './modules/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,14 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    // imports des modules enfants
+    AdminModule,
     AuthModule,
     UtilisateurModule,
-    FournitureModule,
-    BrowserAnimationsModule, 
-    ToastrModule.forRoot()
+    FournitureModule
+    
   ],
   exports: [
     FormsModule

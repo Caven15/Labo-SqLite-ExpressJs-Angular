@@ -2,6 +2,7 @@ const utilisateurModel = require("../models/utilisateur.model")
 var bcrypt = require('bcryptjs');
 
 exports.getAll = (request, response, next) => {
+    console.log("lancement du get All")
     utilisateurModel.getAll().then((datas) => {
             response.json(datas)
         })
