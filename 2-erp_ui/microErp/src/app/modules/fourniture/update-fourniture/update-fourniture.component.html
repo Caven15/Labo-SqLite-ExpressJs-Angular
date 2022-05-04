@@ -1,0 +1,37 @@
+<form [formGroup]="updateForm" (ngSubmit)="update()">
+    <div class="container p-5 d-flex justify-content-center">
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="d-flex justify-content-center align-items-center mt-3">
+                    <h4 class="text-right fw-bold mb-0 fs-2">Modification commande nr: {{fourniture.id}}</h4>
+                </div>
+                <div class="col border-right">
+                    <div class="p-3 py-5">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class="labels">Nom :</label>
+                                <input type="text" formControlName="nom" class="form-control" placeholder={{fourniture.nom}}>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">quantité :</label>
+                                <input type="text" formControlName="quantite" class="form-control" placeholder={{fourniture.quantite}}>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0 p-0">
+                <div class="col-md-6">
+                    <div class="mb-3 text-center d-grid col-6 mx-auto">
+                        <input class="btn w-100 btn-success" type="submit"value="Modifier" [disabled]="updateForm.invalid">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 text-center d-grid col-6 mx-auto">
+                        <button class="btn w-100 btn-danger" type="button" (click)="annuler()">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

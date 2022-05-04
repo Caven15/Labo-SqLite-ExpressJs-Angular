@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { utilisateur } from 'src/app/models/utilisateur/utilisateur.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { utilisateurService } from 'src/app/services/utilisateur.service';
@@ -13,18 +13,11 @@ import { DatePipe } from '@angular/common'
   providers: [DatePipe]
 })
 export class UpdateUtilisateurComponent implements OnInit {
-  @ViewChild("password") password: ElementRef
-  @ViewChild("passwordConfirmed") passwordConfirmed: ElementRef
-  getvalue(){
-    console.log("---")
-    console.log(this.password)
-    console.log(this.passwordConfirmed)
-  }
-  public utilisateur: utilisateur;
-  public updateForm: FormGroup;
+
+  public utilisateur: utilisateur
+  public updateForm: FormGroup
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _route: Router,
     private _utilisateurService: utilisateurService,
     private _authService: AuthService,

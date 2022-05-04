@@ -42,7 +42,6 @@ exports.login = (request, response, next) => {
             isAdmin : data.isAdmin
         }
         const token = generateAccesToken(dataToken)
-        console.log(token)
         response.json(token)
     })
 }

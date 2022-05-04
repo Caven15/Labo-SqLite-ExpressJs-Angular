@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { fournitureService } from 'src/app/services/fourniture.service';
 
 @Component({
@@ -14,10 +15,14 @@ export class AllByIdFournitureComponent implements OnInit {
 
   constructor(
     private _fournitureService: fournitureService,
-    private _route: Router
+    private _route: Router,
+    private _authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    if (!this._authService.isConnected()) {
+      this._route.navigate(["auth", "login"])
+    }
     this.getAllById()
   }
   

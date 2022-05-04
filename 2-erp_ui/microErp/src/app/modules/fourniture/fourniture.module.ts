@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AllByIdFournitureComponent } from './all-by-id-fourniture/all-by-id-fourniture.component';
 import { AddFournitureComponent } from './add-fourniture/add-fourniture.component';
 import { DetailFournitureComponent } from './detail-fourniture/detail-fourniture.component';
+import { UpdateFournitureComponent } from './update-fourniture/update-fourniture.component';
 
 
 
@@ -15,7 +16,8 @@ import { DetailFournitureComponent } from './detail-fourniture/detail-fourniture
     AddFournitureComponent,
     AllByIdFournitureComponent,
     AllByIdFournitureComponent,
-    DetailFournitureComponent
+    DetailFournitureComponent,
+    UpdateFournitureComponent
   ],
   imports: [
     CommonModule,

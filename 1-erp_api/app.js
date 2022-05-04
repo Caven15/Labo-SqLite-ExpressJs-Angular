@@ -25,7 +25,6 @@ app.use("/auth", authRouteur)
 
 // si aucune route n'est trouvée
 app.all("*", (request, response, next) => {
-    console.log("attention cette route n'existe pas")
     response.end()
 })
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
-import { utilisateur } from 'src/app/models/utilisateur/utilisateur.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { fournitureService } from 'src/app/services/fourniture.service';
 
 @Component({
@@ -19,10 +19,13 @@ export class AddFournitureComponent implements OnInit {
     private _route: Router,
     private _fournitureService: fournitureService,
     private _formBuilder: FormBuilder,
-    private _reactiveFormsModule : ReactiveFormsModule
+    private _authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    if (!this._authService.isConnected()) {
+      this._route.navigate(["auth", "login"])
+    }
     this.addForm = this._formBuilder.group({
       nom : [null, [Validators.required, Validators.minLength(1), Validators.maxLength(80)]],
       quantite : [null, [Validators.required, Validators.min(1), Validators.max(50)]]

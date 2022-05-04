@@ -12,11 +12,14 @@ export class DeleteUtilisateurComponent implements OnInit {
 
   constructor(
     private _route : Router,
-    private _authservice: AuthService,
+    private _authService: AuthService,
     private _utilisateurService: utilisateurService
   ) { }
 
   ngOnInit(): void {
+    if (!this._authService.isConnected()) {
+      this._route.navigate(["auth", "login"])
+    }
   }
 
   retourArriere(): void {
@@ -31,7 +34,7 @@ export class DeleteUtilisateurComponent implements OnInit {
       },
       complete: () => {
         sessionStorage.clear()
-        this._authservice.logout()
+        this._authService.logout()
         this._route.navigate(['auth', 'login'])
       }
     });
