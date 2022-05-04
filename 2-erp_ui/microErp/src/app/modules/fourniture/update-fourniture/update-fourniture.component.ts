@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { fournitureService } from 'src/app/services/fourniture.service';
+import { toastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-update-fourniture',
@@ -20,7 +21,8 @@ export class UpdateFournitureComponent implements OnInit {
     private _route: Router,
     private _activatedRoute: ActivatedRoute,
     private _fournitureService: fournitureService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _toast: toastService
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +60,7 @@ export class UpdateFournitureComponent implements OnInit {
       },
       complete: () => {
         this._route.navigate(["fourniture", "allById"])
+        this._toast.succesUpdateFourniture()
       }
     })
   }

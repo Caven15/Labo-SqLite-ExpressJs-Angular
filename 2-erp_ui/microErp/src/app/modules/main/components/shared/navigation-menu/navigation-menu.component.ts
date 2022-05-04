@@ -31,13 +31,24 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   refresh(): void{
-
+    let adminTest: number = parseInt(sessionStorage.getItem("isAdmin"))
     if(this.isConnected){
-      this.routes = [
-        // {title: "Acceuil", url: "home", isVisible: true},
-        {title: "Mon profil", url: "/utilisateur/profil", isVisible: true},
-        {title: "Mes commandes", url: "fourniture/allById", isVisible: true}
-      ];
+      if (adminTest == 1) {
+        this.routes = [
+          // {title: "Acceuil", url: "home", isVisible: true},
+          
+          {title: "utilisateur", url: "/admin/allutilisateur", isVisible: true},
+          {title: "commandes", url: "/admin/allCommande", isVisible: true}
+        ];
+      }
+      else{
+        this.routes = [
+          // {title: "Acceuil", url: "home", isVisible: true},
+          
+          {title: "Mon profil", url: "/utilisateur/profil", isVisible: true},
+          {title: "Mes commandes", url: "/fourniture/allById", isVisible: true}
+        ];
+      }
     }
     else{
       this.routes = [
@@ -47,7 +58,6 @@ export class NavigationMenuComponent implements OnInit {
       ];
     }
   }
-
   logout(){
     this._authService.logout();
   }

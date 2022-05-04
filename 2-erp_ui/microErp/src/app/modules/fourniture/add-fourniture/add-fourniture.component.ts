@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { fourniture } from 'src/app/models/fourniture/fourniture.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { fournitureService } from 'src/app/services/fourniture.service';
+import { toastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-add-fourniture',
@@ -19,7 +20,8 @@ export class AddFournitureComponent implements OnInit {
     private _route: Router,
     private _fournitureService: fournitureService,
     private _formBuilder: FormBuilder,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _toast: toastService
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +39,8 @@ export class AddFournitureComponent implements OnInit {
     this._fournitureService.add(this.fourniture).subscribe(
       {
         next : (data) => {
-          console.log("la fourniture a bien été ajouté")
           this._route.navigate(["fourniture", "fourniture", "allById"])
+          this._toast.succesAddFourniture()
         },
         error : (error) => {
           this.errorMessage = "l'ajout de la commande a échouer..."

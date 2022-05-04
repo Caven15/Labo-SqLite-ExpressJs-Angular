@@ -22,8 +22,20 @@ export class toastService {
     }
 
     succesSupressionFourniture(): void {
-      this._toastr.show("forniture suprimé avec succès.","",{
-          progressBar: false,
-          positionClass: 'toast-bottom-right', })
-      }
+    this._toastr.success("forniture suprimé avec succès.","succès !",{
+        progressBar: false,
+        positionClass: 'toast-bottom-right', })
+    }
+
+    succesUpdateFourniture(): void {
+    this._toastr.success("forniture mis a jour avec succès.","succès !",{
+        progressBar: false,
+        positionClass: 'toast-bottom-right', })
+    }
+
+    succesAddFourniture(): void {
+        this._toastr.success("forniture ajouté avec succès.","succès !",{
+            progressBar: false,
+            positionClass: 'toast-bottom-right', })
+        }
 }
